@@ -1,0 +1,8 @@
+<%= month_calendar events: trips do |date, trips| %>
+    <%= date %>
+    <% trips.each do |trip| %>
+        <div>
+            <%= link_to trip.team_name, trip, class: "btn-link" %>
+        </div>
+    <% end %>
+<% end %>

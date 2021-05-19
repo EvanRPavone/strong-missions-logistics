@@ -1,0 +1,73 @@
+<div class="p-10 bg-white border border-grey-200 rounded">
+
+<%= form_with(model: trip, local: true, class: "trip-form") do |form| %>
+  <% if trip.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(trip.errors.count, "error") %> prohibited this trip from being saved:</h2>
+
+      <ul>
+        <% trip.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <h3 class="mb-4">Trip Information</h3>
+
+  <div class="input-group">
+    <%= form.label :team_name, class: "label" %>
+    <%= form.text_field :team_name, class: "input" %>
+  </div>
+
+  <div class="input-group">
+    <%= form.label :start_time, class: "label" %>
+    <div class="flex items-center justify-between max-w-md">
+      <%= form.date_select :start_time, { start_day: Date.today, start_year: Date.today.year }, { class: "select py-2 px-2 mr-2" } %>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <%= form.label :end_time, class: "label" %>
+    <div class="flex items-center justify-between max-w-md">
+      <%= form.date_select :end_time, { start_day: Date.today, start_year: Date.today.year }, { class: "select py-2 px-2 mr-2" }%>
+    </div>
+  </div>
+
+  <div class="input-group">
+    <%= form.label :team_size, class: "label" %>
+    <%= form.number_field :team_size, class: "input" %>
+  </div>
+
+  <div class="input-group">
+    <%= form.label :lodging, class: "label" %>
+    <%= form.collection_select :lodging, Trip::LODGING, :to_s, :to_s, class: "select py-2 px-2 mr-2" %>
+  </div>
+
+  <div class="input-group">
+    <%= form.label :project, class: "label" %>
+    <%= form.collection_select :project, Trip::PROJECTS, :to_s, :to_s, class: "select py-2 px-2 mr-2" %>
+  </div>
+
+  <div class="input-group">
+    <%= form.label :excursion, class: "label" %>
+    <%= form.collection_select :excursion, Trip::EXCURSIONS, :to_s, :to_s, class: "select py-2 px-2 mr-2" %>
+  </div>
+
+  <div class="input-group">
+    <%= form.label :when_excursion, class: "label" %>
+    <%= form.collection_select :when_excursion, Trip::WHEN_EXCURSIONS, :to_s, :to_s, class: "select py-2 px-2 mr-2" %>
+  </div>
+
+  <div class="input-group">
+    <%= form.label :excursion_days, class: "label" %>
+    <%= form.number_field :excursion_days, class: "input" %>
+  </div>
+
+  <hr class="border my-3"/>
+
+  <%# Have payment form on show page %>
+
+  <%= form.submit class:"btn btn-orange text-base py-3 px-5" %>
+  
+<% end %>
