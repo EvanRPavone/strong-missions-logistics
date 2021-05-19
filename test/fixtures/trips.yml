@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  team_name: MyString
+  start_time: 2021-04-14
+  end_time: 2021-04-14
+  team_size: 1
+  lodging: MyString
+  project: MyString
+  excursion: MyString
+  when_excursion: MyString
+  excursion_days: 1
+
+two:
+  team_name: MyString
+  start_time: 2021-04-14
+  end_time: 2021-04-14
+  team_size: 1
+  lodging: MyString
+  project: MyString
+  excursion: MyString
+  when_excursion: MyString
+  excursion_days: 1

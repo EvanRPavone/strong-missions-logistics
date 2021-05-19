@@ -1,2 +1,20 @@
-// require_tree .
-// require_self
+/*
+*= require simple_calendar
+*= require("trix")
+*= require("@rails/actiontext")
+*= require_tree .
+*/
+
+body {
+    background-image: linear-gradient(rgba(255,255,255,0.75),rgba(255,255,255,0.75)), url(https://img5.goodfon.com/wallpaper/nbig/d/73/priroda-dzhungli-les-peizazh-vodopad-kosta-rika.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.simple-calendar {
+    .prev-month,
+    .next-month {
+        background: #efefef;
+    }
+}
