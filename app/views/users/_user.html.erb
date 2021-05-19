@@ -1,0 +1,16 @@
+<div class="flex flex-wrap items-center mb-5 text-indigo-700">
+    <div class="flex-1 flex justify-between items-center">
+        <div><h3 class="text-lg"><%= user.name %></h3> <%= user.email %></div>
+        <p>Joined on <%= readable_time(user.created_at) %></p>
+    </div>
+    <%= link_to 'Delete User', users_path, method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-red ml-4" if admin? %>
+</div>
+
+<% if user.trips.any? %>
+    <div class="block pl-2 border-l border-indigo-200">
+        <p class="text-xs uppercase tracking-loose text-grey-700 pt-1">Upcoming Trips</p>
+        <% user.trips.each do |trip| %>
+            <%= link_to trip.team_name, trip, class: "btn-link my-2 inline-block" %>
+        <% end %>
+    </div>
+<% end %>
