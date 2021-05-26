@@ -75,6 +75,7 @@ ActiveRecord::Schema.define(version: 2021_05_26_155557) do
   end
 
   create_table "itineraries", force: :cascade do |t|
+    t.string "which_team"
     t.string "airline"
     t.string "flight_number"
     t.date "arrival"

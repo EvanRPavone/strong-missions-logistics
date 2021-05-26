@@ -3,8 +3,9 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :trips do
     resources :comments
-    resources :itineraries
   end
+
+  resources :itineraries
 
   authenticate :user, lambda { |u| u.admin? } do
     mount Sidekiq::Web => '/sidekiq'
