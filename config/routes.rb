@@ -3,6 +3,7 @@ require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :trips do
     resources :comments
+    resources :itineraries
   end
 
   authenticate :user, lambda { |u| u.admin? } do
