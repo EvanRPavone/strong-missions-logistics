@@ -11,5 +11,12 @@ module ApplicationHelper
     def admin?
         user_signed_in? && current_user.admin?
     end
-    
+
+    def rdyForItinerary?
+        user_signed_in? && current_user.rdyForItinerary?
+    end
+
+    def readyToPay?
+        user_signed_in? && current_user.readyToPay?
+    end
 end
