@@ -81,11 +81,9 @@ ActiveRecord::Schema.define(version: 2021_05_26_155557) do
     t.date "arrival"
     t.date "depart"
     t.string "transportation"
-    t.bigint "trip_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
-    t.index ["trip_id"], name: "index_itineraries_on_trip_id"
     t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
 
@@ -125,6 +123,5 @@ ActiveRecord::Schema.define(version: 2021_05_26_155557) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "comments", "trips"
-  add_foreign_key "itineraries", "trips"
   add_foreign_key "trips", "users"
 end
