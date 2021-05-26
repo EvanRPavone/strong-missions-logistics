@@ -1,0 +1,6 @@
+<div class="block pl-2 border-l border-indigo-200">
+  <p class="text-xs uppercase tracking-loose text-grey-700 pt-1">Upcoming Trips</p>
+  <% @itineraries.each do |itinerary| %>
+    Itinerary for <%= link_to itinerary.which_team, itinerary, class: 'btn-link my-2 inline-block' %>
+  <% end %>
+</div>

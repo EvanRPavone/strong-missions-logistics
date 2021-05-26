@@ -1,0 +1,60 @@
+<% if current_user.rdyForItinerary? %>
+  <div class="p-10 bg-white border border-grey-200 rounded">
+
+  <%= form_with(model: itinerary, local: true, class: "itinerary-form") do |form| %>
+    <% if itinerary.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(itinerary.errors.count, "error") %> prohibited this itinerary from being saved:</h2>
+
+        <ul>
+          <% itinerary.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <h3 class="mb-4">Itinerary Information</h3>
+
+    <div class="input-group">
+      <%= form.label :which_team, class: "label" %>
+      <%= form.text_field :which_team, class: "input", placeholder: "Which Team is this itinerary for?" %>
+    </div>
+
+    <div class="input-group">
+      <%= form.label :arrival, class: "label" %>
+      <div class="flex items-center justify-between max-w-md">
+        <%= form.date_select :arrival, { start_day: Date.today, start_year: Date.today.year }, { class: "select py-2 px-2 mr-2" } %>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <%= form.label :depart, class: "label" %>
+      <div class="flex items-center justify-between max-w-md">
+        <%= form.date_select :depart, { start_day: Date.today, start_year: Date.today.year }, { class: "select py-2 px-2 mr-2" }%>
+      </div>
+    </div>
+
+    <div class="input-group">
+      <%= form.label :airline, class: "label" %>
+      <%= form.text_field :airline, class: "input" %>
+    </div>
+
+    <div class="input-group">
+      <%= form.label :flight_number, class: "label" %>
+      <%= form.text_field :flight_number, class: "input" %>
+    </div>
+
+    <div class="input-group">
+      <%= form.label :transportation, class: "label" %>
+      <%= form.collection_select :transportation, Itinerary::TRANSPORTATION, :to_s, :to_s, class: "select py-2 px-2 mr-2" %>
+    </div>
+
+    <hr class="border my-3"/>
+
+    <%= form.submit class:"btn btn-orange text-base py-3 px-5" %>
+    
+  <% end %>
+<% else %>
+  <p>Sorry, your trip hasn't been approved by an admin yet...</p>
+<% end %>
