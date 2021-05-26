@@ -8,4 +8,5 @@ has_person_name
 
   has_many :trips, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :itineraries, dependent: :destroy
 end

@@ -80,7 +80,7 @@ class ItinerariesController < ApplicationController
   
       def must_be_admin
           unless current_user.admin?
-              redirect_to itineraries_path, alert: "You don't have access to this page"
+              redirect_to trips_path, alert: "You don't have access to this page"
           end
       end
   end
