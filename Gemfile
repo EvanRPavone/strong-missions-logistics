@@ -62,4 +62,4 @@ gem 'sidekiq', '~> 6.1', '>= 6.1.2'
 gem 'name_of_person', '~> 1.1', '>= 1.1.1'
 
 gem 'simple_calendar', '~> 2.4', '>= 2.4.2'
-gem 'cancancan'
+
