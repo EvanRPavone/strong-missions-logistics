@@ -63,3 +63,4 @@ gem 'name_of_person', '~> 1.1', '>= 1.1.1'
 
 gem 'simple_calendar', '~> 2.4', '>= 2.4.2'
 gem 'rails_admin'
+gem 'prawn'
