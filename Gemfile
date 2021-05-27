@@ -62,5 +62,4 @@ gem 'sidekiq', '~> 6.1', '>= 6.1.2'
 gem 'name_of_person', '~> 1.1', '>= 1.1.1'
 
 gem 'simple_calendar', '~> 2.4', '>= 2.4.2'
-gem 'trix-rails', '~> 2.3'
-gem 'stripe', '~> 5.32', '>= 5.32.1'
+gem 'cancancan'
