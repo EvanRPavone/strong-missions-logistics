@@ -17,6 +17,6 @@ module ApplicationHelper
     end
 
     def readyToPay?
-        user_signed_in? && current_user.readyToPay?
+        user_signed_in? && current_user.rdyToPay?
     end
 end

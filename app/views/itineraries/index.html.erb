@@ -1,6 +1,8 @@
-<div class="block pl-2 border-l border-indigo-200">
-  <p class="text-xs uppercase tracking-loose text-grey-700 pt-1">Upcoming Trips</p>
-  <% @itineraries.each do |itinerary| %>
-    Itinerary for <%= link_to itinerary.which_team, itinerary, class: 'btn-link my-2 inline-block' %>
-  <% end %>
+<% if current_user.rdyForItinerary? %>
+<div class="container m-auto bg-white my-10 border border-grey-200 p-6">
+    <h1 class="text-indigo-700 pb-2 border-b border-grey-200 mb-4">Itineraries</h1>
+    <% @itineraries.each do |itinerary| %>
+      Itinerary for <%= link_to itinerary.which_team, itinerary, class: 'btn-link my-2 inline-block' %>
+    <% end %>
 </div>
+<% end %>
