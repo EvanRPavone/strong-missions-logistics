@@ -5,7 +5,7 @@
     <h1 class="text-xl"><strong><%= @trip.team_name %></strong></h1>
     <br/>
       <%= link_to "Itinerary", itineraries_path, class:"btn btn-orange" if rdyForItinerary? || admin?%>
-      <%= link_to "Ready To Pay?", "#", class:"btn btn-green" if readyToPay? || admin?%>
+      <%= link_to "Ready To Pay?", home_download_pdf_url, class:"btn btn-green" if readyToPay? || admin?%>
       <%= link_to "Cancel Registration", trip_path(@trip), method: :delete, data: { confirm: "Are you sure?" }, class: "btn btn-red" if admin? %>
     </div>
 

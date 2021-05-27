@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     mount Sidekiq::Web => '/sidekiq'
   end
 
+  get "home/download_pdf"
 
   devise_for :users
   get 'active-sessions', to: "trips#active_sessions"
