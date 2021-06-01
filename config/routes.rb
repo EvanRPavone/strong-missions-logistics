@@ -13,6 +13,8 @@ Rails.application.routes.draw do
   end
 
   get "home/download_pdf"
+  get 'home/about'
+  get 'home/staff'
 
   devise_for :users
   get 'active-sessions', to: "trips#active_sessions"
