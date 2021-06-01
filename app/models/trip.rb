@@ -1,4 +1,5 @@
 class Trip < ApplicationRecord
+    extend FriendlyId
     belongs_to :user
     has_many :comments, dependent: :destroy
     LODGING = ['Strong Missions Center', 'Hotel', 'Bed & Breakfast']
@@ -9,7 +10,7 @@ class Trip < ApplicationRecord
     validates :start_time, :end_time, presence: true
     validate :end_time_after_start_time
 
-
+    friendly_id :team_name, use: :slugged
     private
 
     def end_time_after_start_time

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_05_26_155557) do
+ActiveRecord::Schema.define(version: 2021_06_01_145546) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -83,6 +83,8 @@ ActiveRecord::Schema.define(version: 2021_05_26_155557) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+    t.string "slug"
+    t.index ["slug"], name: "index_itineraries_on_slug", unique: true
     t.index ["user_id"], name: "index_itineraries_on_user_id"
   end
 
@@ -99,6 +101,8 @@ ActiveRecord::Schema.define(version: 2021_05_26_155557) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "user_id", null: false
+    t.string "slug"
+    t.index ["slug"], name: "index_trips_on_slug", unique: true
     t.index ["user_id"], name: "index_trips_on_user_id"
   end
 
@@ -115,8 +119,10 @@ ActiveRecord::Schema.define(version: 2021_05_26_155557) do
     t.datetime "updated_at", precision: 6, null: false
     t.boolean "rdyForItinerary", default: false
     t.boolean "rdyToPay", default: false
+    t.string "slug"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+    t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"

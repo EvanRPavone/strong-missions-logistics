@@ -31,7 +31,7 @@ class CommentsController < ApplicationController
     private
 
     def set_trip
-        @trip = Trip.find(params[:trip_id])
+        @trip = Trip.friendly.find(params[:trip_id])
     end
 
     def set_comment

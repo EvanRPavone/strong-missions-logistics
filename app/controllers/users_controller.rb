@@ -5,6 +5,10 @@ class UsersController < ApplicationController
         @users = User.all
     end
 
+    def show
+        @user = User.friendly.find(params[:id])
+    end
+
     private
 
     def must_be_admin
