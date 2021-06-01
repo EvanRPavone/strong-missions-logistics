@@ -1,6 +1,8 @@
 <% if current_user.rdyForItinerary? %>
 <div class="container m-auto bg-white my-10 border border-grey-200 p-6">
     <h1 class="text-indigo-700 pb-2 border-b border-grey-200 mb-4">Itineraries</h1>
+    <%= link_to "New Itinerary", new_itinerary_path, class: "btn btn-orange py-3 px-5" %>
+    <br/>
     <% @itineraries.each do |itinerary| %>
       Itinerary for <%= link_to itinerary.which_team, itinerary, class: 'btn-link my-2 inline-block' %>
     <% end %>
