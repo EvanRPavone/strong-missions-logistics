@@ -58,6 +58,10 @@
     <h1 class="text-lg"><strong>Comments</strong></h1>
     <hr class="border"/>
 
+    <div id="comments">
+      <%= render @trip.comments %>
+    </div>
+
     <% unless user_signed_in? %>
       <div class="bg-grey-200 rounded p-4 mt-4 text-center">
         <p class="text-sm text-grey-600"><%= link_to "Login", new_user_session_path, class: "btn-link" %> or <%= link_to "Sign Up", new_user_registration_path, class: "btn-link"%> to comment.</p>
@@ -65,10 +69,6 @@
     <% else %>
       <%= render 'comments/form' %>
     <% end %>
-
-    <div id="comments">
-      <%= render @trip.comments %>
-    </div>
 
   </div>
 </div>

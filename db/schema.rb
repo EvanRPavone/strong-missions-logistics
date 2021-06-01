@@ -54,7 +54,6 @@ ActiveRecord::Schema.define(version: 2021_05_26_155557) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text "reply"
     t.bigint "trip_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
