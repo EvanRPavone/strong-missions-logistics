@@ -36,6 +36,7 @@ class TripsController < ApplicationController
       if @trip.save
         format.html { redirect_to @trip, notice: "Trip was successfully created." }
         format.json { render :show, status: :created, location: @trip }
+        TripMailer.with(trip: @trip, user: current_user).trip_scheduled
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @trip.errors, status: :unprocessable_entity }
