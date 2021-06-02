@@ -23,7 +23,7 @@
             <div class="flex flex-wrap items-center justify-start p-4 border-b-2 border-grey-100 mb-6">
                 <div class="flex-1 flex justify-between">
                     <div>
-                        <%= link_to trip.team_name, trip, class: "btn-link mr-4"%>
+                        <%= link_to trip.team_name, trip, class: "btn-link mr-4"%> - <%= trip.team_size %>
                     </div>
                     <div>
                         <%= readable_time(trip.start_time) %> &ndash;
