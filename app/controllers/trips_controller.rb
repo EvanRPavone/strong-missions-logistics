@@ -2,6 +2,7 @@ class TripsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_trip, only: %i[ show edit update destroy ]
   before_action :must_be_admin, only: [:active_sessions]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   # GET /trips or /trips.json
   def index
@@ -67,6 +68,11 @@ class TripsController < ApplicationController
 
   def active_sessions
     @active_sessions = Trip.where("end_time > ?", Time.now)
+  end
+
+  def correct_user #finds the post_id that is associated to the current_user id. if the user does not own that post then it will redirect them to the posts index page with a notice.
+    @trip = current_user.trips.find_by(id: params[:id])
+    redirect_to trips_path, notice: 'not authorized to edit this post' if @trip.nil?
   end
 
   private
